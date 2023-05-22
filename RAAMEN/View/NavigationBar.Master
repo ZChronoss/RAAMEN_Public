@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavigationBar.master.cs" Inherits="RAAMEN.View.NavigationBar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">        
+        <div>
+            <nav>
+                <div>
+                    <asp:Button ID="OrderRamen" runat="server" Text="Order Ramen" Visible="false" OnClick="OrderRamen_Click"/>
+                    <asp:Button ID="History" runat="server" Text="History" Visible="false" OnClick="History_Click"/>                    
+                    <asp:Button ID="Home" runat="server" Text="Home" Visible="false" OnClick="Home_Click"/>
+                    <asp:Button ID="ManageRamen" runat="server" Text="Manage Ramen" Visible="false" OnClick="ManageRamen_Click"/>
+                    <asp:Button ID="OrderQueue" runat="server" Text="Order Queue" Visible="false" OnClick="OrderQueue_Click"/>
+                    <asp:Button ID="Report" runat="server" Text="Report" Visible="false" OnClick="Report_Click"/>
+                    <asp:Button ID="ProfilePage" runat="server" Text="Profile" OnClick="ProfilePage_Click"/>
+                    <asp:Button ID="Logout" runat="server" Text="Logout" style="color:red;" OnClick="Logout_Click"/>
+                </div>
+            </nav>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

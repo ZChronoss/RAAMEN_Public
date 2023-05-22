@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAAMEN", "RAAMEN\RAAMEN.csproj", "{CE9A298B-2B7F-463F-A1F7-1C3971CCC9A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE9A298B-2B7F-463F-A1F7-1C3971CCC9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9A298B-2B7F-463F-A1F7-1C3971CCC9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9A298B-2B7F-463F-A1F7-1C3971CCC9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9A298B-2B7F-463F-A1F7-1C3971CCC9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05E92849-6DB0-43D3-9433-76BA60538305}
+	EndGlobalSection
+EndGlobal
