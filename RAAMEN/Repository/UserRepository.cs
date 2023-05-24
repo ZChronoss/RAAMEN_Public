@@ -12,19 +12,11 @@ namespace RAAMEN.Repository
         Database1Entities db = new Database1Entities();
         RoleRepository rp = new RoleRepository();
 
-        public bool Register(string username, string email, string gender, string password)
+        public void Register(string username, string email, string gender, string password)
         {
-            User sameUser = db.Users.Where(x => x.Email == email).FirstOrDefault();
-            if(sameUser != null)
-            {
-                return false;
-            }
-
             User newUser = UserFactory.CreateUser(username, email, gender, password, 2);
             db.Users.Add(newUser);
             db.SaveChanges();
-
-            return true;
         }
 
         public User Login(String username, String password)
@@ -33,22 +25,20 @@ namespace RAAMEN.Repository
             return user;
         }
 
-        public bool UpdateUser(int userId, string username, string email, string gender)
+        public void UpdateUser(int userId, string username, string email, string gender)
         {
-            User sameUser = db.Users.Where(x => x.Email == email).FirstOrDefault();
-
-            if(sameUser != null && userId != sameUser.Id)
-            {
-                return false;
-            }
-
             User updUser = getUser(userId);
             updUser.Username = username;
             updUser.Email = email;
             updUser.Gender = gender;
 
             db.SaveChanges();
-            return true;
+        }
+
+        public User getUserByEmail(string email)
+        {
+            User user = db.Users.Where(x => x.Email == email).FirstOrDefault();
+            return user;
         }
 
         public string getRole(int id)
@@ -71,7 +61,7 @@ namespace RAAMEN.Repository
 
         public User getUser(int id)
         {
-            User retUser = db.Users.Find(id);
+            User retUser = db.Users.Where(x => x.Id == id).FirstOrDefault();
             return retUser;
         }
     }

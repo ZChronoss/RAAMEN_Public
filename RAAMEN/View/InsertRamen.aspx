@@ -22,7 +22,7 @@
             </div>
 
             <div class="price">
-                <asp:TextBox ID="PriceTextBox" runat="server" placeholder="Price"></asp:TextBox><br />
+                <asp:TextBox ID="PriceTextBox" runat="server" placeholder="Price" TextMode="Number" ></asp:TextBox><br />
                 <asp:Label ID="PriceEmpty" runat="server" Visible="false" style="color:red;"></asp:Label>
             </div>
 

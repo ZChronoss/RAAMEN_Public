@@ -30,9 +30,9 @@ namespace RAAMEN.View
                 MeatDropDown.DataSource = meats;
                 MeatDropDown.DataTextField = "Name";
                 MeatDropDown.DataValueField = "Id";
-                MeatDropDown.DataBind();
+                MeatDropDown.DataBind();    
+                MeatDropDown.Items.Insert(0, new ListItem("--Select--", String.Empty));
             }
-            //MeatDropDown.Items.Insert(0, new ListItem("--Select--", String.Empty));
         }
 
         private bool nameValid(string name)
@@ -48,9 +48,9 @@ namespace RAAMEN.View
             return false;
         }
 
-        private bool meatValid(int id)
+        private bool meatValid(string id)
         {
-            if(id != 0)
+            if(!id.Equals(String.Empty))
             {
                 MeatEmpty.Visible = false;
                 return true;
@@ -61,10 +61,44 @@ namespace RAAMEN.View
             return false;
         }
 
+        private bool brothValid(string broth)
+        {
+            if(broth.Length != 0)
+            {
+                BrothEmpty.Visible = false;
+                return true;
+            }
+
+            BrothEmpty.Text = "Broth must be filled!";
+            BrothEmpty.Visible = true;
+            return false;
+        }
+
+        private bool priceValid(String price)
+        {
+            if(!price.Equals(String.Empty) && Convert.ToInt32(price) >= 3000)
+            {
+                PriceEmpty.Visible = false;
+                return true;
+            }
+
+            PriceEmpty.Text = "Price must be at least 3000!";
+            PriceEmpty.Visible = true;
+            return false;
+        }
+
         protected void InsertBtn_Click(object sender, EventArgs e)
         {
-            string meat = MeatDropDown.SelectedItem.Text;
-            InsertBtn.Text = meat;
+            string name = NameTextBox.Text;
+            string meat = MeatDropDown.SelectedValue;
+            string broth = BrothTextBox.Text;
+            String price = PriceTextBox.Text;
+            
+            if(nameValid(name) && meatValid(meat) && brothValid(broth) && priceValid(price))
+            {
+                rr.insertRamen(Convert.ToInt32(meat), name, broth, Convert.ToInt32(price));
+                Response.Redirect("~/View/ManageRamen.aspx");
+            }
         }
 
         protected void BackBtn_Click(object sender, EventArgs e)

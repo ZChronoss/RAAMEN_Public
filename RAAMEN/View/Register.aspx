@@ -16,7 +16,7 @@
                 <asp:Label ID="UsernameValid" runat="server" Visible="false" style="color:red;"></asp:Label>
             </div>
 
-            <div class="email" style="text-align:center;">
+            <div class="email" style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
                 <asp:TextBox ID="EmailTextBox" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
                 <asp:Label ID="EmailValid" runat="server" Visible="false" style="color:red;"></asp:Label>
             </div>

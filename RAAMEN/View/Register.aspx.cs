@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using RAAMEN.Repository;
+using RAAMEN.Model;
 
 namespace RAAMEN.View
 {
@@ -89,15 +90,15 @@ namespace RAAMEN.View
 
             if(usernameValid(username) && emailValid(email) && genderValid(gender) && passwordValid(password, confPass))
             {
-                bool reg = ur.Register(username, email, gender, password);
-
-                if (!reg)
+                User sameUser = ur.getUserByEmail(email);
+                if (sameUser != null)
                 {
                     ErrorLabel.Text = "User with the same email already exists!";
                     ErrorLabel.Visible = true;
                 }
                 else
                 {
+                    ur.Register(username, email, gender, password);
                     Response.Redirect("~/View/Login.aspx");
                 }
             }

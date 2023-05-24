@@ -12,18 +12,27 @@ namespace RAAMEN.Repository
     {
         Database1Entities db = new Database1Entities();
         MeatRepository mr = new MeatRepository();
-        public void insertRamen(string meatName, string name, string broth, int price)
+        public void insertRamen(int meatId, string name, string broth, int price)
         {
-            Meat meat = db.Meats.Where(x => x.Name == meatName).FirstOrDefault();
-
-            Ramen newRamen = RamenFactory.createRamen(meat.Id, name, broth, price);
+            Ramen newRamen = RamenFactory.createRamen(meatId, name, broth, price);
             db.Ramen1.Add(newRamen);
+            db.SaveChanges();
+        }
+
+        public void updateRamen(int ramenId, int meatId, string name, string broth, int price)
+        {
+            Ramen updRamen = GetRamen(ramenId);
+
+            updRamen.Name = name;
+            updRamen.Meatid = meatId;
+            updRamen.Broth = broth;
+            updRamen.Price = price.ToString();
             db.SaveChanges();
         }
 
         public void deleteRamen(int id)
         {
-            Ramen delRamen = db.Ramen1.Find(id);
+            Ramen delRamen = GetRamen(id);
 
             db.Ramen1.Remove(delRamen);
             db.SaveChanges();
@@ -39,6 +48,12 @@ namespace RAAMEN.Repository
         {
             List<Meat> meats = mr.GetMeats();
             return meats;
+        }
+
+        public Ramen GetRamen(int id)
+        {
+            Ramen retRamen = db.Ramen1.Where(x => x.Id == id).FirstOrDefault();
+            return retRamen;
         }
     }
 }
