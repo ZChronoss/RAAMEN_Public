@@ -6,7 +6,7 @@
         <h1>Order Ramen</h1>
 
         <div>
-            <asp:GridView ID="RamenGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="RamenGridView_RowCommand">
+            <asp:GridView ID="RamenGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="RamenGridView_RowCommand" >
                 <Columns>
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"/>
                     <asp:BoundField DataField="Meat.name" HeaderText="Meat" SortExpression="Meat.name" />
@@ -19,14 +19,22 @@
 
         <div>
             <h3>Cart</h3>
+            <asp:Label ID="CartIsEmpty" runat="server" Text="Cart is empty!" Visible="false"></asp:Label>
 
-            <asp:GridView ID="CartGridView" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="CartGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="CartGridView_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="Name" HeaderText="Name"/>
-                    
+                    <asp:BoundField DataField="Qty" HeaderText="Quantity"/>
+                    <asp:ButtonField HeaderText="Remove Order" CommandName="RemoveOrder" Text="Remove" ItemStyle-HorizontalAlign="Center" />
                 </Columns>
             </asp:GridView>
+
+            <div style="margin-top:10px;">
+                <asp:Button ID="BuyCartBtn" runat="server" Text="Buy Cart" OnClick="BuyCartBtn_Click" BackColor="LightGreen" style="margin-right:10px;" />
+                <asp:Button ID="ClearCartBtn" runat="server" Text="Clear Cart" OnClick="ClearCartBtn_Click"/>
+            </div>
         </div>
     </div>
+
 
 </asp:Content>

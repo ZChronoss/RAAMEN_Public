@@ -55,5 +55,11 @@ namespace RAAMEN.Repository
             Ramen retRamen = db.Ramen1.Where(x => x.Id == id).FirstOrDefault();
             return retRamen;
         }
+
+        public Ramen GetRamenByName(string name)
+        {
+            Ramen retRamen = db.Ramen1.Where(x => x.Name == name).FirstOrDefault();
+            return retRamen;
+        }
     }
 }

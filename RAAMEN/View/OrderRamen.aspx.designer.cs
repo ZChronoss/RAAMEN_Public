@@ -24,6 +24,15 @@ namespace RAAMEN.View
         protected global::System.Web.UI.WebControls.GridView RamenGridView;
 
         /// <summary>
+        /// CartIsEmpty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CartIsEmpty;
+
+        /// <summary>
         /// CartGridView control.
         /// </summary>
         /// <remarks>
@@ -31,5 +40,23 @@ namespace RAAMEN.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView CartGridView;
+
+        /// <summary>
+        /// BuyCartBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuyCartBtn;
+
+        /// <summary>
+        /// ClearCartBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ClearCartBtn;
     }
 }

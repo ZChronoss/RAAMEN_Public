@@ -46,8 +46,7 @@ namespace RAAMEN.View
             {
                 Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
             }
-            Session["User"] = null;
-            Session["Role"] = null;
+            Session.Abandon();
             Response.Redirect("~/View/Login.aspx");
         }
 
