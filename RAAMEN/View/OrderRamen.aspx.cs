@@ -136,7 +136,8 @@ namespace RAAMEN.View
             User cust = (User)Session["User"];
             int custId = cust.Id;
 
-            Header newHeader = thr.insertHeader(custId, -1, DateTime.Now);
+            // staffid '9' means unhandled
+            Header newHeader = thr.insertHeader(custId, 9, DateTime.Now);
             foreach(Tuple<Ramen, int> ramen in ramenCarts)
             {
                 tdr.insertDetail(newHeader.Id, ramen.Item1.Id, ramen.Item2);

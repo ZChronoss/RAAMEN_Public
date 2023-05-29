@@ -11,106 +11,97 @@ namespace RAAMEN.View
 {
 
 
-    public partial class Profile
+    public partial class TransactionDetail
     {
 
         /// <summary>
-        /// UsernameTextBox control.
+        /// TrIdLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsernameTextBox;
+        protected global::System.Web.UI.WebControls.Label TrIdLabel;
 
         /// <summary>
-        /// UsernameValid control.
+        /// TrId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameValid;
+        protected global::System.Web.UI.WebControls.Label TrId;
 
         /// <summary>
-        /// EmailTextBox control.
+        /// StaffLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        protected global::System.Web.UI.WebControls.Label StaffLabel;
 
         /// <summary>
-        /// EmailValid control.
+        /// Staff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailValid;
+        protected global::System.Web.UI.WebControls.Label Staff;
 
         /// <summary>
-        /// GenderLbl control.
+        /// CustomerLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GenderLbl;
+        protected global::System.Web.UI.WebControls.Label CustomerLabel;
 
         /// <summary>
-        /// GenderList control.
+        /// Customer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GenderList;
+        protected global::System.Web.UI.WebControls.Label Customer;
 
         /// <summary>
-        /// GenderValid control.
+        /// DateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GenderValid;
+        protected global::System.Web.UI.WebControls.Label DateLabel;
 
         /// <summary>
-        /// PasswordTextBox control.
+        /// Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
+        protected global::System.Web.UI.WebControls.Label Date;
 
         /// <summary>
-        /// PasswordValid control.
+        /// TrDetailGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordValid;
+        protected global::System.Web.UI.WebControls.GridView TrDetailGridView;
 
         /// <summary>
-        /// UpdateButton control.
+        /// BackBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateButton;
-
-        /// <summary>
-        /// ErrorLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        protected global::System.Web.UI.WebControls.Button BackBtn;
     }
 }

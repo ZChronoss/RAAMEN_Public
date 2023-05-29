@@ -18,5 +18,11 @@ namespace RAAMEN.Repository
             db.Details.Add(newDetail);
             db.SaveChanges();
         }
+
+        public List<Detail> GetDetailsByHeaderId(int headerId)
+        {
+            List<Detail> details = db.Details.Where(x => x.Headerid == headerId).ToList();
+            return details;
+        }
     }
 }

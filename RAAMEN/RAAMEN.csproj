@@ -95,15 +95,19 @@
     <Content Include="View\Login.aspx" />
     <Content Include="View\ManageRamen.aspx" />
     <Content Include="View\OrderQueue.aspx" />
+    <Content Include="View\OrderQueueDetail.aspx" />
     <Content Include="View\OrderRamen.aspx" />
     <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\Report.aspx" />
+    <Content Include="View\TransactionDetail.aspx" />
     <Content Include="View\UpdateRamen.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory\RamenFactory.cs" />
+    <Compile Include="Factory\TransactionDetailFactory.cs" />
+    <Compile Include="Factory\TransactionHeaderFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Model\Detail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -142,6 +146,8 @@
     <Compile Include="Repository\MeatRepository.cs" />
     <Compile Include="Repository\RamenRepository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />
+    <Compile Include="Repository\TransactionHeaderRepository.cs" />
+    <Compile Include="Repository\TransactionDetailRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="View\History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
@@ -192,6 +198,13 @@
     <Compile Include="View\OrderQueue.aspx.designer.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\OrderQueueDetail.aspx.cs">
+      <DependentUpon>OrderQueueDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\OrderQueueDetail.aspx.designer.cs">
+      <DependentUpon>OrderQueueDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\OrderRamen.aspx.cs">
       <DependentUpon>OrderRamen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +232,13 @@
     </Compile>
     <Compile Include="View\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\UpdateRamen.aspx.cs">
       <DependentUpon>UpdateRamen.aspx</DependentUpon>

@@ -26,7 +26,7 @@
                 <asp:Label ID="PasswordValid" runat="server" Visible="false" style="color:red;"></asp:Label>
             </div>
             <div class="button">
-                <asp:Button ID="UpdateProfBtn" runat="server" Text="Update" OnClick="UpdateProfBtn_Click" BackColor="LightGreen" Width="100"/>
+                <asp:Button ID="UpdateButton" runat="server" Text="Update" BackColor="LightGreen" Width="100" OnClick="UpdateButton_Click"/>
             </div>
             <div class="errorMessage">
                 <asp:Label ID="ErrorLabel" runat="server" Visible="false" BorderStyle="Solid" BackColor="Red" style="padding:20px;"></asp:Label>

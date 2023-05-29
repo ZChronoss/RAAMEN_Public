@@ -27,7 +27,7 @@ namespace RAAMEN.Repository
 
         public void UpdateUser(int userId, string username, string email, string gender)
         {
-            User updUser = getUser(userId);
+            User updUser = db.Users.Where(x => x.Id == userId).FirstOrDefault();
             updUser.Username = username;
             updUser.Email = email;
             updUser.Gender = gender;

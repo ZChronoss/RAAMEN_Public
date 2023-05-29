@@ -12,27 +12,21 @@ namespace RAAMEN.View
 {
     public partial class Profile : System.Web.UI.Page
     {
-        UserRepository ur = new UserRepository();
+        UserRepository ur = new UserRepository();        
         protected void Page_Load(object sender, EventArgs e)
         {
+            User curUser = (User)Session["User"];
             if (Session["User"] == null)
             {
                 Response.Redirect("~/View/Login.aspx");
             }
 
-            List<String> gender = new List<String>
-            {
-                "Female",
-                "Male"
-            };
 
-            if (!IsPostBack)
+            if (IsPostBack == false)
             {
-                int userId = Convert.ToInt32(Session["UserID"].ToString());
-                User updUser = ur.getUser(userId);
-                UsernameTextBox.Text = updUser.Username;
-                EmailTextBox.Text = updUser.Email;
-                GenderList.SelectedValue = gender.Where(x => x == updUser.Gender).FirstOrDefault();
+                UsernameTextBox.Text = curUser.Username;
+                EmailTextBox.Text = curUser.Email;
+                GenderList.SelectedValue = GenderList.Items.FindByText(curUser.Gender).ToString();
             }
         }
 
@@ -82,13 +76,14 @@ namespace RAAMEN.View
             return false;
         }
 
-        private bool passwordValid(int userId, string pass)
-        {          
-            User updUser = ur.getUser(userId);  
-            string realPass = updUser.Password;
-            
-            if (pass.Equals(realPass) && pass.Length != 0)
+        private bool passwordValid(string pass)
+        {
+            User curUser = (User)Session["User"];
+            string realPass = curUser.Password;
+
+            if(pass == realPass)
             {
+                PasswordValid.Visible = false;
                 return true;
             }
 
@@ -97,27 +92,35 @@ namespace RAAMEN.View
             return false;
         }
 
-        protected void UpdateProfBtn_Click(object sender, EventArgs e)
+        protected void UpdateButton_Click(object sender, EventArgs e)
         {
             int userId = Convert.ToInt32(Session["UserID"].ToString());
-            
             string username = UsernameTextBox.Text;
             string email = EmailTextBox.Text;
             string gender = GenderList.SelectedItem.Text;
             string pass = PasswordTextBox.Text;
 
-            if(usernameValid(username) && emailValid(email) && genderValid(gender) && passwordValid(userId, pass))
+            if (usernameValid(username) && emailValid(email) && genderValid(gender) && passwordValid(pass))
             {
-                bool upd = ur.UpdateUser(userId, username, email, gender);
-
-                if (!upd)
+                //ErrorLabel.Text = "Halo";
+                //ErrorLabel.Visible = true;
+                User sameUser = ur.getUserByEmail(email);
+                if (sameUser != null && userId != sameUser.Id)
                 {
                     ErrorLabel.Text = "User with the same email already exists!";
                     ErrorLabel.Visible = true;
                 }
                 else
                 {
-                    Response.Redirect("~/View/Profile.aspx");
+                    ErrorLabel.Visible = false;
+                    ur.UpdateUser(userId, username, email, gender);
+
+
+                    User curUser = ur.getUser(userId);
+                    Session["User"] = curUser;
+                    UsernameTextBox.Text = curUser.Username;
+                    EmailTextBox.Text = curUser.Email;
+                    GenderList.SelectedValue = GenderList.Items.FindByText(curUser.Gender).ToString();
                 }
             }
         }
